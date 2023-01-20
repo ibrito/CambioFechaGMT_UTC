@@ -2,6 +2,17 @@
 # CambioFechaGMT_UTC
 Función básica para cambiar de GMT a UTC partiendo de un String con formato
 
+## Librerias
+```
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+```
+
+
 ### Codigo Patron de conversion
 ```
 DateTimeFormatter formatoFecha=DateTimeFormatter.ofPattern("EEE,dd MMM yyyy HH:mm:ss zzz", Locale.US);
