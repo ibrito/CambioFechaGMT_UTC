@@ -2,6 +2,33 @@
 # CambioFechaGMT_UTC
 Función básica para cambiar de GMT a UTC partiendo de un String con formato
 
+### Codigo Patron de conversion
+```
+DateTimeFormatter formatoFecha=DateTimeFormatter.ofPattern("EEE,dd MMM yyyy HH:mm:ss zzz", Locale.US);
+```
+
+
+### Codigo Operaciones de la función
+```
+        LocalDateTime horaLocal=LocalDateTime.parse(fechaTextoGMT, formatoFecha);
+        System.out.println("Objeto fecha con Formato: "+horaLocal);
+       
+        
+        //hora GMT
+        Instant fechaInstantaneaGMT= horaLocal.atZone(ZoneId.of("GMT")).toInstant();
+        System.out.println("FechaHora GMT: "+fechaInstantaneaGMT);
+        
+        //hora UTC
+        Instant fechaInstantaneaUTC= horaLocal.atZone(ZoneId.of("America/Santiago")).toInstant();
+        System.out.println("FechaLocalChile: "+fechaInstantaneaUTC);
+        
+        
+        ZonedDateTime fechaLocalUTC= ZonedDateTime.parse(fechaInstantaneaUTC.toString());
+        
+        System.out.println("Hora Local chile con formato de entrada: "+fechaLocalUTC.format(formatoFecha));
+```
+
+
 ### Salida
 ```
 Fecha GMT (Texto):Fri,13 Jan 2023 19:31:23 GMT
