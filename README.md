@@ -15,11 +15,11 @@ import java.util.Locale;
 ## Funcion Principal
 La funcion  fechaGTM_UTC() recibe un String con este formato "Fri,13 Jan 2023 19:31:23 GMT"_
 ```
-        public static void main(String[] args) {
+public static void main(String[] args) {
 
-                fechaGTM_UTC("Fri,13 Jan 2023 19:31:23 GMT");
+        fechaGTM_UTC("Fri,13 Jan 2023 19:31:23 GMT");
 
-        }
+}
 ```
 
 ### Codigo Patron de conversion
@@ -30,31 +30,31 @@ DateTimeFormatter formatoFecha=DateTimeFormatter.ofPattern("EEE,dd MMM yyyy HH:m
 
 ### Codigo Operaciones de la función
 ```
-        public static void fechaGTM_UTC(String fechaStrGMT) {
+public static void fechaGTM_UTC(String fechaStrGMT) {
 
-                //"Fri,13 Jan 2023 19:31:23 GMT"
-                String fechaTextoGMT=fechaStrGMT;
-                System.out.println("Fecha GMT (Texto):"+fechaTextoGMT);
+        //"Fri,13 Jan 2023 19:31:23 GMT"
+        String fechaTextoGMT=fechaStrGMT;
+        System.out.println("Fecha GMT (Texto):"+fechaTextoGMT);
 
-                DateTimeFormatter formatoFecha=DateTimeFormatter.ofPattern("EEE,dd MMM yyyy HH:mm:ss zzz", Locale.US);
-
-
-                LocalDateTime horaLocal=LocalDateTime.parse(fechaTextoGMT, formatoFecha);
-                System.out.println("Objeto fecha con Formato: "+horaLocal);
-
-                //hora GMT
-                Instant fechaInstantaneaGMT= horaLocal.atZone(ZoneId.of("GMT")).toInstant();
-                System.out.println("FechaHora GMT: "+fechaInstantaneaGMT);
-
-                //hora UTC
-                Instant fechaInstantaneaUTC= horaLocal.atZone(ZoneId.of("America/Santiago")).toInstant();
-                System.out.println("FechaLocalChile: "+fechaInstantaneaUTC);
+        DateTimeFormatter formatoFecha=DateTimeFormatter.ofPattern("EEE,dd MMM yyyy HH:mm:ss zzz", Locale.US);
 
 
-                ZonedDateTime fechaLocalUTC= ZonedDateTime.parse(fechaInstantaneaUTC.toString());
-                System.out.println("Hora Local chile con formato de entrada: "+fechaLocalUTC.format(formatoFecha));
+        LocalDateTime horaLocal=LocalDateTime.parse(fechaTextoGMT, formatoFecha);
+        System.out.println("Objeto fecha con Formato: "+horaLocal);
 
-        }//FIN fechaGTM_UTC()
+        //hora GMT
+        Instant fechaInstantaneaGMT= horaLocal.atZone(ZoneId.of("GMT")).toInstant();
+        System.out.println("FechaHora GMT: "+fechaInstantaneaGMT);
+
+        //hora UTC
+        Instant fechaInstantaneaUTC= horaLocal.atZone(ZoneId.of("America/Santiago")).toInstant();
+        System.out.println("FechaLocalChile: "+fechaInstantaneaUTC);
+
+
+        ZonedDateTime fechaLocalUTC= ZonedDateTime.parse(fechaInstantaneaUTC.toString());
+        System.out.println("Hora Local chile con formato de entrada: "+fechaLocalUTC.format(formatoFecha));
+
+}//FIN fechaGTM_UTC()
 ```
 
 
