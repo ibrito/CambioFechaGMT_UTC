@@ -12,6 +12,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 ```
 
+## Funcion Principal
+_Esto fechaGTM_UTC() recibe un String con este formato "Fri,13 Jan 2023 19:31:23 GMT"_
+```
+        public static void main(String[] args) {
+
+                fechaGTM_UTC("Fri,13 Jan 2023 19:31:23 GMT");
+
+        }
+```
 
 ### Codigo Patron de conversion
 ```
