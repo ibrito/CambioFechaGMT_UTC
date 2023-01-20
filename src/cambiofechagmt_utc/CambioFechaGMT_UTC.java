@@ -25,6 +25,7 @@ public class CambioFechaGMT_UTC {
     
     public static void fechaGTM_UTC(String fechaStrGMT) {
         
+        //"Fri,13 Jan 2023 19:31:23 GMT"
          String fechaTextoGMT=fechaStrGMT;
         System.out.println("Fecha GMT (Texto):"+fechaTextoGMT);
         
